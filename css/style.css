@@ -1,3 +1,7 @@
+---
+navbar_height: 50px
+---
+
 * {
 	padding: 0 0 0 0;
 	margin: 0 0 0 0;
@@ -5,13 +9,28 @@
 	font-family: "Playfair Display", serif;
 }
 
+html {
+	overflow: hidden;
+	height: 100%;
+}
+
+body {
+	overscroll-behaviour: none;
+	overflow: auto;
+	height: 100%;
+}
+
 .navbar {
-	height: 100px;
-	background-color: black;
+	height: {{ page.navbar_height }};
+	position: fixed;
+	top: 0;
+	width: 100%;
 	
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
+	
+	background-color: black;
 }
 
 .navbar a {
@@ -23,7 +42,11 @@ a {
 	text-decoration: none;
 }
 
-header h1 {
+#main {
+	margin-top: {{ page.navbar_height }};
+}
+
+#title {
 	text-align: center;
 	padding-top: 25px;
 	padding-bottom: 25px;
@@ -32,7 +55,39 @@ header h1 {
 	font-size: 3.0em;
 }
 
-#main {
-	padding-left: 100px;
+#panel {
+	height: 500px;
+	width: 100%;
+	
+	overflow: hidden;
+	
+	display: flex;
+}
+
+#panel div {
+	height: 100%;
+}
+
+#panel_left {	
+	background-color: gray;
+	
+	flex-basis: 50%;
+	
+	padding-top: 50px;
+	padding-left: 50px;
 	padding-right: 100px;
+}
+
+#panel_left h1 {
+	font-size: 3.0em;
+}
+
+#panel_right {
+	background-color: green;
+	flex-basis: 50%;
+}
+
+footer {
+	height: 150px;
+	background-color: black;
 }
