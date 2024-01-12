@@ -2,12 +2,36 @@
 navbar_height: 50px
 ---
 
+:root {
+  --color-alpha: #2781D8;
+  --color-beta: #2729D8;
+  --color-gamma: #27D8D6;
+}
+
 * {
 	padding: 0 0 0 0;
 	margin: 0 0 0 0;
 	
+	box-sizing: border-box;
+	
 	font-family: "Playfair Display", serif;
 }
+
+.block-element {
+	background-color: var(--color-gamma);
+}
+
+/* 
+	The html and body selectors here are to stop whitespace appearing
+	between the navbar and the main content when the user tries 
+	to scroll past the top of the page.
+	
+	The overscroll-behaviour property was taken from Stack overflow
+	but it seems to do nothing so I commented it out for now.
+	
+	Apparently one shouldn't use the -webkit-scrollbar pseudo-element,
+	but I will for now.
+*/
 
 html {
 	overflow: hidden;
@@ -15,12 +39,20 @@ html {
 }
 
 body {
-	overscroll-behaviour: none;
+	/*overscroll-behaviour: none;*/
 	overflow: auto;
 	height: 100%;
 }
 
-.navbar {
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/*
+	Here is the CSS for the navbar. It uses the flexbox module.
+*/
+
+.navbar-container {
 	height: {{ page.navbar_height }};
 	position: fixed;
 	top: 0;
@@ -30,17 +62,24 @@ body {
 	align-items: center;
 	justify-content: space-around;
 	
-	background-color: black;
+	background-color: var(--color-alpha);
+	
+	list-style-type: none; /* This removes the bullet points from the li elements*/
 }
 
-.navbar a {
-	color: white;
+.navbar-item a {
+	color: black;
 	font-size: 1.5em;
-}
-
-a {
 	text-decoration: none;
 }
+
+.navbar-item a:hover {
+	color: var(--color-gamma);
+}
+
+/*
+	Here is the CSS for the home page
+*/
 
 #main {
 	margin-top: {{ page.navbar_height }};
@@ -56,22 +95,24 @@ a {
 }
 
 #panel {
-	height: 500px;
+	min-height: 500px;
 	width: 100%;
 	
-	overflow: hidden;
+	/*overflow: hidden;*/
 	
 	display: flex;
+	flex-wrap: wrap;
 }
 
 #panel div {
-	height: 100%;
+	max-height: 100%;
+	min-height: 200px;
 }
 
 #panel_left {	
-	background-color: gray;
+	background-color: var(--color-beta);
 	
-	flex-basis: 50%;
+	flex: 1 200px;
 	
 	padding-top: 50px;
 	padding-left: 50px;
@@ -83,11 +124,80 @@ a {
 }
 
 #panel_right {
-	background-color: green;
-	flex-basis: 50%;
+	flex: 1 200px;	
+}
+
+#panel_right img {
+	
+	max-width: 100%;
+	height: 100%;
+	
+	
+	object-fit: cover;
+	top: 0;
+	right: 0;
+}
+
+#below_fold {
+	min-height: 500px;
+	padding: 50px;
+}
+
+#contact_section {
+	min-height: 550px;
+	display: flex;
+	justify-content: center;
+	padding: 30px;
+}
+
+#contact_section form {
+	width: 100%;
+	max-width: 500px;
+}
+
+#contact_section form h1 {
+	padding-bottom: 12px;
+}
+
+/* 
+	I stole the styling below from https://www.w3schools.com/howto/howto_css_contact_form.asp 
+	and updated it significantly.
+*/
+
+/* Style inputs with type="text" or type="email", and textareas */
+input[type=text], input[type=email], textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+textarea {
+	min-height: 100px;
+	max-height: 300px;
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+  background-color: #45a049;
 }
 
 footer {
-	height: 150px;
-	background-color: black;
+	min-height: 150px;
+	background-color: var(--color-alpha);
+	padding: 20px;
 }

@@ -4,25 +4,29 @@
 		<title>{{ page.title }}</title>
 		<style>@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap')</style>
 		<link rel="stylesheet" href="/css/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 
 	<body>
 		
-		<nav class="navbar">
+		<header><nav><ul class="navbar-container">
 			{% for item in site.data.nav %}
 				
-			<a href="{{ item.link }}">{{ item.name }}</a>
+			<li class="navbar-item"><a href="{{ item.link }}">{{ item.name }}</a></li>
 				
 			{% endfor %}
-		</nav>
+		</ul></nav></header>
 		
 		
-		<div id="main">
+		<div id="main" class="block-element">
 			{{content}}
 		</div>
 		
 		<footer>
-		
+			<p>
+			I live and work on the traditional territories of the xʷməθkʷəy̓əm (Musqueam), Sḵwx̱wú7mesh (Squamish), and səlilwətaɬ (Tsleil-Waututh) Nations.
+			This land was never ceded, and has been cared for by its original residents since time immemorial.
+			</p>
 		</footer>
 	</body>
 <html>

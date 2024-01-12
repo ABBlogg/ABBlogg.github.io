@@ -2,14 +2,20 @@
 layout: default
 ---
 
-<section id="panel">
+{% assign contentArray = page.content | markdownify | split: "<!--break-->" %}
+
+<section id="panel" class="block-element">
 	<div id="panel_left">
 		<h1>{{ page.title }}</h1>
-		<p>I can tutor you in mathematics or computer science, from primary school all the way up to undergraduate level.
+		<p>{{ contentArray[0] }}</p>
 	</div>
 	<div id="panel_right">
-
+		<img src="/assets/mandel-11.jpg"/>
 	</div>
 </section>
 
-{{ content }}
+<section id="below_fold">
+
+<p>{{ contentArray[1] }}</p>
+
+</section>

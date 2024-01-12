@@ -4,15 +4,14 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+# Me
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+I am an Australian living in Vancouver! I come from a small city called Albany on the south-west coast.
+I have completed three out of four years of my degree at the University of Western Australia, double majoring
+in Computer Science, and Mathematics and Statistics.
+Besides math and coding, my interests include history, literature, and film.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+# This website
 
-
-[jekyll-organization]: https://github.com/jekyll
+I built (and host) this site using GitHub Pages and Jekyll. I decided against using Jekyll's prebuilt themes
+in order to teach myself more about front-end development.
